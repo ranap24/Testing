@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using Calculator;
-using NUnit.Framework.Legacy;
 
 namespace CalculatorTest
 {
@@ -34,6 +33,12 @@ namespace CalculatorTest
             List<int> expectedNumbers = new() { 1, 3, 5, 7, 9 };
             var result = calculator.OddNumbers(1, 10);
             Assert.That(result, Is.EquivalentTo(expectedNumbers));
+            Assert.That(result.Count, Is.EqualTo(5));
+            Assert.That(result,Is.Not.Empty);   
+            Assert.That(result, Is.Ordered.Ascending);
+            Assert.That(result, Has.Member(3));
+            Assert.That(result, Has.No.Member(2));
+            Assert.That(result,Is.Unique);  
         }
     }
 }
